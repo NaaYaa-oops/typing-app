@@ -16,7 +16,7 @@ const Input = () => {
     const dispatch = useDispatch()
     const sentence = useSelector(state => state.typing.typingWords)
     const [button, setButton] = useState()
-    const [help, setHelp] = useState()
+    // const [help, setHelp] = useState()
     const [inputValue, setInputValue] = useState('')
     useEffect(() => {
         dispatch(fetchingWords())
@@ -30,7 +30,8 @@ const Input = () => {
         setCounter(prev => prev + 1)
         dispatch(charPerMinute(counter / 5))
         words.startsWith(event.target.value) && setAccurate(prev => prev + 1)
-        dispatch(setAccuracy((accurate / counter) * 100))
+        const acc = ((accurate / counter) * 100) >= 100 ? 100 : ((accurate / counter) * 100)
+        dispatch(setAccuracy(((accurate / counter) * 100) >= 100 ? 100 : ((accurate / counter) * 100)))
         dispatch(setTypos(counter - accurate))
     }
 
@@ -50,7 +51,7 @@ const Input = () => {
         }
         if (event.key !== undefined) {
             setButton(`button-${event.key}`)
-            setHelp(Date.now())
+            // setHelp(Date.now())
         } else if (event.which !== undefined) {
 
         }
@@ -68,12 +69,13 @@ const Input = () => {
                 />
                 <input className={'input-container__item-2'} value={inputValue} type={'text'} onChange={changeHandler}
                        onKeyDown={keyDownHandler}
-                       placeholder={'type here...'}
+                       placeholder={'start typing'}
                 >
                 </input>
                 <hr id={'hr'}/>
             </div>
-            <Keyboard button={button} value={inputValue} help={help}/>
+            <Keyboard button={button}/>
+            {/*<Keyboard button={button} value={inputValue} help={help}/>*/}
         </>
     )
 }

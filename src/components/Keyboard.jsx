@@ -3,7 +3,7 @@ import React, {useEffect, useRef} from 'react'
 import '../UI/homeContent/keyboard.scss'
 
 
-const Keyboard = ({button, value, help}) => {
+const Keyboard = ({button, help}) => {
     const form = useRef()
 
     useEffect(() => {
@@ -31,7 +31,8 @@ const Keyboard = ({button, value, help}) => {
             })
         })
         // eslint-disable-next-line
-    }, [help])
+    })
+    //, [help]
     return (
         <div ref={form} className={'keyboard'}>
             <div className={'keyboard-string'}>

@@ -16,7 +16,7 @@ const Header = () => {
                     <FontAwesomeIcon icon={faKeyboard}/>
                 </div>
                 <div>
-                    <h1 className={'home-header__h1'}>{charPerMinute}</h1>
+                    <h1 className={'home-header__h1'}>{Math.trunc(charPerMinute)}</h1>
                     <span className={'home-header__span'}>char/min</span>
                 </div>
             </div>
