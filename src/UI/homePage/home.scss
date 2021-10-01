@@ -1,0 +1,14 @@
+.main-screen {
+  height: 100vh;
+  background: url("background.jpg") no-repeat center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  & > div + div {
+    margin-top: 50px;
+  }
+}
+

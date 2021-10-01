@@ -1,0 +1,54 @@
+.input-container {
+  overflow: hidden;
+  margin-bottom: 50px;
+
+  input + input {
+    margin-top: 10px;
+  }
+
+  ::placeholder {
+    letter-spacing: 1rem;
+    color: rgba(70, 57, 57, 0.85);
+    text-transform: uppercase;
+  }
+
+  #hr {
+    width: 60%;
+    border-bottom: 4px solid rgba(78, 65, 65, 0.85);
+    transition: all 1s ease-in;
+    border-radius: 10px;
+    margin: auto;
+  }
+
+  &__item-1 {
+    padding: 20px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white;
+    pointer-events: none;
+
+    &:focus-visible {
+      outline: none;
+      border: none;
+    }
+  }
+
+  &__item-2 {
+    padding: 20px 20px 0 20px;
+    background: none;
+    border: none;
+    text-align: center;
+    font-size: 24px;
+    color: white;
+
+    &:focus-visible {
+      border: none;
+      outline: none;
+
+      ~ #hr {
+        width: 90%;
+      }
+    }
+  }
+}

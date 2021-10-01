@@ -1,0 +1,69 @@
+.keyboard {
+  display: flex;
+  width: 100%;
+  position: relative;
+  flex-direction: column;
+  //max-width: 400px;
+  //background: aqua;
+  &-string + &-string {
+    margin-top: 20px;
+  }
+
+  &-string {
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    color: white;
+
+    div {
+      width: 50px;
+      height: 50px;
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      cursor: default;
+      pointer-events: none;
+
+      &.show {
+        background: rgba(125, 163, 153, 0.7);
+        transition: all 750ms ease-in-out;
+      }
+    }
+  }
+}
+
+#flex1 {
+  flex: 0.15;
+}
+
+#flex2 {
+  flex: 0.25;
+
+}
+
+#flex-space {
+  flex: 0.35;
+
+}
+
+.control {
+  font-size: 12px;
+}
+
+#flex-shift {
+  flex: 0.2;
+}
+
+.arrows {
+  display: flex;
+  flex-direction: column;
+  border: none !important;
+}
+
+.show {
+  background: #95c9bc;
+  transition: all 750ms ease-in-out;
+}
