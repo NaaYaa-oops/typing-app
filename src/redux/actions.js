@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {CHAR_PER_MINUTE, FETCH_WORDS, SET_ACCURACY, SET_TYPOS} from './types'
+import {CHAR_PER_MINUTE, FETCH_WORDS, PRESSED_BUTTON, SET_ACCURACY, SET_TYPOS} from './types'
 
 
 const URL = process.env.REACT_APP_DB_URL
@@ -32,5 +32,12 @@ export function setTypos(typos) {
     return {
         type: SET_TYPOS,
         payload: typos
+    }
+}
+
+export function pressedButton(btn) {
+    return {
+        type: PRESSED_BUTTON,
+        payload: btn
     }
 }

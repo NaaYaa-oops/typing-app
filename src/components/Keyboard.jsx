@@ -1,35 +1,39 @@
 import React, {useEffect, useRef} from 'react'
 // import './key.scss'
 import '../UI/homeContent/keyboard.scss'
+import {useSelector} from 'react-redux'
 
 
-const Keyboard = ({button, help}) => {
+const Keyboard = () => {
     const form = useRef()
-
+    const btn = useSelector(state => state.typing.button)
     useEffect(() => {
-        // eslint-disable-next-line
-        Array.from(form.current.children).map(e => {
+        if (btn) {
             // eslint-disable-next-line
-            Array.from(e.childNodes).map(el => {
-                if (el.className === 'arrows') {
-                    // eslint-disable-next-line
-                    Array.from(el.childNodes).map(element => {
-                        if (element.className.includes(button)) {
-                            element.classList.add('show')
-                            setTimeout(() => {
-                                element.classList.remove('show')
-                            }, 1000)
-                        }
-                    })
-                }
-                if (el.className.includes(button)) {
-                    el.classList.add('show')
-                    setTimeout(() => {
-                        el.classList.remove('show')
-                    }, 1000)
-                }
+            Array.from(form.current.children).map(e => {
+                // eslint-disable-next-line
+                Array.from(e.childNodes).map(el => {
+                    if (el.className === 'arrows') {
+                        // eslint-disable-next-line
+                        Array.from(el.childNodes).map(element => {
+                            if (element.className.includes(btn)) {
+                                element.classList.add('show')
+                                setTimeout(() => {
+                                    element.classList.remove('show')
+                                }, 1000)
+                            }
+                        })
+                    }
+                    if (el.className.includes(btn)) {
+                        el.classList.add('show')
+                        setTimeout(() => {
+                            el.classList.remove('show')
+                        }, 1000)
+                    }
+                })
             })
-        })
+        }
+
         // eslint-disable-next-line
     })
     //, [help]
